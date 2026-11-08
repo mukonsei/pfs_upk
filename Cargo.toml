@@ -23,5 +23,10 @@ path = "src/main.rs"
 [dependencies]
 
 [profile.release]
+# Smallest binary: opt-level "z" beats "s" here (199 vs 204 KiB before abort),
+# panic=abort drops the unwinding tables, strip removes the symbol table.
+opt-level = "z"
 lto = true
 codegen-units = 1
+panic = "abort"
+strip = true
