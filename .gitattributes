@@ -1,0 +1,3 @@
+# Keep the repository byte-identical across platforms; the format tests assert
+# exact bytes and CRLF noise hides real diffs.
+* text=auto eol=lf

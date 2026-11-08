@@ -1,0 +1,27 @@
+[package]
+name = "pfs_upk"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+license = "GPL-3.0-or-later"
+description = "Artemis Engine PFS archive packer and unpacker"
+repository = "https://github.com/mukonsei/pfs_upk"
+readme = "README.md"
+keywords = ["pfs", "archive", "artemis"]
+categories = ["command-line-utilities"]
+
+[lib]
+name = "pfs_upk"
+path = "src/lib.rs"
+
+[[bin]]
+name = "pfs_upk"
+path = "src/main.rs"
+
+# No dependencies by design: the SHA-1 implementation lives in src/codec.rs so the
+# crate builds and tests offline, with no third-party supply chain.
+[dependencies]
+
+[profile.release]
+lto = true
+codegen-units = 1
